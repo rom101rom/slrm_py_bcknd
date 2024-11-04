@@ -20,11 +20,11 @@ jobs:
     # You can test your matrix by printing the current Python version
     - name: Install dependencies
       run: |
-        pip install --upgrade pipenv
-        pipenv install -r requirements.txt
+        pip install --user --upgrade pipenv 
+        pipenv install Pipfile
     - name: Run black
       run:
-        pipenv run python -m black --check .
+        pipenv run python -m black --check ./
     - name: Run flake8
       run: 
         pipenv run python -m flake8 .
