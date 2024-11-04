@@ -24,7 +24,7 @@ jobs:
         pipenv install Pipfile
     - name: Run black
       run:
-        pipenv run python -m black --check ./
+        pipenv run --dev python -m black --check ./
     - name: Run flake8
       run: 
-        pipenv run python -m flake8 .
+        pipenv run python --dev -m flake8 ./
