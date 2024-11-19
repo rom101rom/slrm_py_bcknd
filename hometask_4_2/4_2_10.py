@@ -4,18 +4,21 @@ You print "-", "+" or "=" for every attempt'''
 low = 0
 high = 100
 for i in range(1, 9):
-    mid = int((high - low) / 2) + low
-    print(f'Attempt #{i}, is it {mid}?')
+    def mid_num(higher_num:int, lower_num:int):
+        mid = int((higher_num - lower_num) / 2) + lower_num
+        return mid
+
+    
+    print(f'Attempt #{i}, is it {mid_num(high, low)}?')
+    
     a = str(input())
     if a == '=':
         print('You`r win!')
         break
     elif a == '-':
-        high = mid
-        mid = int((high - low) / 2) + low
-        print("low", low, "high", high, "mid", mid)
+        high = mid_num(high, low)
+        mid_num(high, low)
     elif a == "+":
-        low = mid
-        mid = int((high - low) / 2) + low
-        print("low", low, "high", high, "mid", mid)
+        low = mid_num(high, low)
+        mid_num(high, low)
 
