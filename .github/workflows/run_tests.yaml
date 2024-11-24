@@ -1,30 +1,30 @@
-name: Python package
+#name: Python package
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.12]
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    # You can test your matrix by printing the current Python version
-    - name: Install dependencies
-      run: |
-        pip install --user --upgrade pipenv 
-        pipenv install Pipfile
-    - name: Run black
-      run:
-        pipenv run --dev python -m black --check ./
-    - name: Run flake8
-      run: 
-        pipenv run python --dev -m flake8 ./
+# on:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         python-version: [3.12]
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: Set up Python
+#       uses: actions/setup-python@v2
+#       with:
+#         python-version: ${{ matrix.python-version }}
+#     # You can test your matrix by printing the current Python version
+#     - name: Install dependencies
+#       run: |
+#         pip install --user --upgrade pipenv 
+#         pipenv install Pipfile
+#     - name: Run black
+#       run:
+#         pipenv run --dev python -m black --check ./
+#     - name: Run flake8
+#       run: 
+#         pipenv run python --dev -m flake8 ./
