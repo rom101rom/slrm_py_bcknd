@@ -21,7 +21,8 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --user --upgrade pipenv 
-        pipenv install Pipfile
+        pipenv install black
+        pipenv install flake8
     - name: Run black
       run:
         pipenv run python -m black --check ./
