@@ -7,7 +7,7 @@ for i in range(1, 9):
     def mid_num(higher_num: int, lower_num: int):
         mid = int((higher_num - lower_num) / 2) + lower_num
         return mid
-    print(f'Attempt #{i}, is it {mid_num(high, low)}?')    
+    print(f'Attempt #{i}, is it {mid_num(high, low)}?')
     a = str(input())
     if a == '=':
         print('You`r win!')
@@ -18,3 +18,4 @@ for i in range(1, 9):
     elif a == "+":
         low = mid_num(high, low)
         mid_num(high, low)
+        
