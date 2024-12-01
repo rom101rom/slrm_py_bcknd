@@ -20,7 +20,7 @@ jobs:
         shell: bash
       - name: Lint with flake8
         run: |
-          pipenv -m install flake8
+          pipenv install flake8
           pipenv run python -m flake8 ./
       - name: test with pytest
         run: |
