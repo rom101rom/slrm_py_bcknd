@@ -3,7 +3,7 @@ name: tests on push and pull-request
 on: [push, pull_request]
 
 jobs:
-  flake8-lint:
+  pipenv_packages_from_Pipfile:
     runs-on: ubuntu-latest
     name: Lint
     steps:
@@ -18,7 +18,9 @@ jobs:
           python -m pip install --upgrade --no-cache-dir pip
           python -m pip install --no-cache-dir pipenv
         shell: bash
-      - name: Install requirements for pipenv from Pipfile
+      - name: Install requirements for pipenv from
+          run:
+            pipenv install
       # - name: Lint with flake8
       #   run: |
       #     pipenv install flake8
