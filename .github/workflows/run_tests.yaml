@@ -19,10 +19,9 @@ jobs:
           python -m pip install --no-cache-dir pipenv
         shell: bash
       - name: Lint with flake8
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
         run: |
           pipenv install flake8
-          pipenv run python -m flake8
+          pipenv run python -m flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: test with pytest
         run: |
           pipenv install pytest
