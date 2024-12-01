@@ -19,8 +19,8 @@ jobs:
           python -m pip install --no-cache-dir pipenv
         shell: bash
       - name: Install requirements for pipenv from
-          run:
-            pipenv install
+        run:
+          pipenv install
       # - name: Lint with flake8
       #   run: |
       #     pipenv install flake8
