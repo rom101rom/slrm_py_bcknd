@@ -12,7 +12,17 @@ if os.path.isdir(args.target_pointer):
         for file in files:
             if file.endswith('.txt'):
                 with open(f'{root}/\\{file}') as f:
-                    if not is_valid(f.read()): print(f'{file} Error! Brackets invalid!')
+                    if not is_valid(f.read()):
+                        with open(f'{args.target_pointer}\\solution.txt', 'a') as m:
+                            m.write(f'{file} Error! Brackets invalid!\n')
+                    else:
+                        with open(f'{args.target_pointer}\\solution.txt', 'a') as m:
+                            m.write(f'{file} Valid!\n')
 else:
     with open(args.target_pointer) as f:
-        if not is_valid(f.read()): print(f'{f.name[2::]} Error! Brackets invalid!')
+        if not is_valid(f.read()):
+           with open(f'{os.getcwd()}\\solution.txt', 'a') as m:
+                            m.write(f'{f.name[2::]} Error! Brackets invalid!\n')
+        else:
+             with open(f'{os.getcwd()}\\solution.txt', 'a') as m:
+                            m.write(f'{f.name[2::]} Valid!\n')
