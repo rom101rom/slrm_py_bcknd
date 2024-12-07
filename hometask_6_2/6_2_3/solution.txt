@@ -1,0 +1,6 @@
+assert_4.txt Error! Brackets invalid!
+assert_7.txt Valid!
+assert_1.txt Valid!
+assert_2.txt Error! Brackets invalid!
+assert_3.txt Error! Brackets invalid!
+assert_6.txt Error! Brackets invalid!
