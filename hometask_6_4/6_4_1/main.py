@@ -11,7 +11,7 @@ loop = asyncio.get_event_loop()
 executor = ProcessPoolExecutor(max_workers=multiprocessing.cpu_count())
 
 
-def gen_rand_str(lines_num) -> list:    #task (worker)
+def gen_rand_str(lines_num) -> list:    #worker
     res = []
     for i in range(int(lines_num)):
         res.append(''.join([random.choice(string.ascii_letters + ' ') for i in range(2, random.randrange(2, 101))]))
