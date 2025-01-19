@@ -7,19 +7,20 @@ class ClickerWindow(QWidget):
         
     
         self.layout = QVBoxLayout()
-        self.clickButton = QPushButton('Click', self)
+
         self.button_is_checked = True
+        self.clicked_count = 0
+        self.label = QLabel('Checked', self)
+
+        self.clickButton = QPushButton('Click', self)
         self.checkedButton = QPushButton()
         self.checkedButton.setCheckable(True)
         self.checkedButton.setChecked(self.button_is_checked)
         self.counterButton = QPushButton('Click count = 0', self)
-        self.clicked_count = 0
         
         self.layout.addWidget(self.clickButton)
         self.layout.addWidget(self.checkedButton)
         self.layout.addWidget(self.counterButton)
-        
-        self.label = QLabel('Checked', self)
         self.layout.addWidget(self.label)
         
         self.layout.addStretch(1)
