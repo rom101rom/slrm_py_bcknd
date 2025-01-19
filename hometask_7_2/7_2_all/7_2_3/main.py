@@ -1,5 +1,6 @@
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QLabel, QMessageBox
 class ClickerWindow(QWidget):
+    '''Window with 3 buttons: message-box, checked label and clicker-counter'''
 
     def __init__(self):
         super().__init__()
