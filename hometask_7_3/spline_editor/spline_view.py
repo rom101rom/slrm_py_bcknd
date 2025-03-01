@@ -6,8 +6,10 @@ from spline import Spline
 from knot import Knot
 
 
+
 class SplineView(QWidget):
     current_knot_changed = pyqtSignal(Knot)
+    # undo_action_triggered = pyqtSignal(Spline)
 
     def __init__(self, parent = None) -> None:
         super().__init__(parent)
@@ -38,6 +40,7 @@ class SplineView(QWidget):
             self.cur_knot_index = index
         else:
             self.spline.add_knot(event.pos())
+            self.spline.add_cur_spline()
             self.cur_knot_index = len(self.spline.get_knots()) - 1
             
         self.current_knot_changed.emit(self.spline.get_knots()[self.cur_knot_index])
@@ -46,6 +49,8 @@ class SplineView(QWidget):
 
     def set_current_knot(self, value: Knot):
         self.spline.set_current_knot(self.cur_knot_index, value)
+        self.spline.add_setted_spline()
         self.update()
 
-    
+    # def set_previous_spline(self):
+    #     self.undo_action_triggered.emit(self.spline.get_previous_spline())

@@ -1,9 +1,11 @@
-from  PyQt5.QtCore import QPointF, QPoint
+from PyQt5.QtCore import QPointF, QPoint
 from PyQt5.QtGui import QPolygonF
 
 from knot import Knot
 
 from typing import List
+
+from splinehistory import SplineHistory
 
 
 class Spline:
@@ -12,7 +14,7 @@ class Spline:
         self.curve = None
         self.subdivs = 40
         self.uStep = 1.0 / self.subdivs
-
+        self.spline_history = SplineHistory()  
 
     def get_knots(self) -> List[Knot]:
         return self.knots
@@ -31,6 +33,20 @@ class Spline:
     def add_knot(self, pos) -> None:
         self.knots.append(Knot(QPointF(pos)))
         self.curve = None
+    
+    def add_cur_spline(self):
+        self.spline_history.add_cur_spline(self.knots)
+        self.spline_history.get_cur_spline()
+        self.spline_history.increase_spline_index()
+        # print(f'add new knot, spline index = {self.spline_history.spline_index}  add cur spline: {self.spline_history.get_cur_spline()}')
+
+    def add_setted_spline(self):
+        self.spline_history.get_cur_spline()
+        self.spline_history.increase_spline_index()
+        # print(f'set exist knot, spline index = {self.spline_history.spline_index} cur spline: {self.spline_history.get_cur_spline()}')
+
+    def get_previous_spline(self):
+        return self.spline_history.get_previous_spline()
 
     def get_knot_by_pos(self, pos: QPoint) -> int:
         for index, knot in enumerate(self.knots):
