@@ -18,7 +18,6 @@ class Game():
     def playerX_change(self, val):
         player.playerX_change(val)
 
-
     def playerX(self, val_x):
         player.playerX += val_x
         if player.playerX <= 0:
